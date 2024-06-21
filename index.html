@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Quote Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap-grid.css">
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class=".container-fluid mt-5">
+        <div class="row">
+            <div class="col-lg-12 text-center  ">
+                <h1>Random Quote Generator</h1>
+                <p id="random-quote">Quote will appear here</p>
+                <button onclick="generateRandomQuote()" class="btn btn-primary">click for cool quotes</button>
+                <button onclick="copyText()" class="btn btn-warning">Copy quotes</button>
+            </div>
+        </div>
+    </div>
+    <script src="./mein.js"></script>
+    
+    <!-- script for copy btn -->
+    <script>
+        async function copyToClipboard(text) {
+            try {
+                await navigator.clipboard.writeText(text);
+                alert('Text copied to clipboard');
+            } catch (err) {
+                console.error('Failed to copy text: ', err);
+            }
+        }
+
+        function copyText() {
+            const text = document.getElementById('random-quote').innerText;
+            copyToClipboard(text);
+        }
+    </script>
+</body>
+
+</html>
